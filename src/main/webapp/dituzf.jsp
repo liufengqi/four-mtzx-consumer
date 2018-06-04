@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <link href="<%=request.getContextPath()%>/mt/imp/Favicon.ico.ico" type="image/x-icon" rel="icon">
     <link href="<%=request.getContextPath()%>/mt/imp/Favicon.ico.ico" type="image/x-icon" rel="shortcut icon">
-
+    <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
     <title>北京二手房_北京二手房交易_北京麦田网</title>
     <meta name="description" content="麦田北京二手房网提供北京二手房出售信息,北京最新二手房交易,北京二手房房价查询" />
     <meta name="keywords" content="北京二手房出售,北京二手房交易,北京二手房交易流程,北京二手房房价,北京二手房买卖." />
@@ -261,7 +261,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/mt/esf_list_map.css-version=3.0.0.css">
     <!--[if lt IE 9]><script type="text/javascript" src="<%=request.getContextPath()%>/mt/html5.js"></script><![endif]-->
     <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9Qqgu6wUHSFzaBdUfUTHnaIStqcynhwW"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LcArhZnuHIoiakE0c9BxnHO2LoiGPDFr"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/mt/SearchInfoWindow_min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/mt/GeoUtils_min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/mt/InfoBox_min.js"></script>
@@ -303,10 +303,9 @@
     </div>
 
 
-
-    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101321688" data-redirecturi="http://bj.maitian.cn/Service/AuthLoginQQ.ashx" charset="utf-8"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/mt/qc_loader.js" data-appid="101321688" data-redirecturi="http://bj.maitian.cn/Service/AuthLoginQQ.ashx" charset="utf-8"></script>
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=226422212" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="http://tjs.sjs.sinajs.cn/t35/apps/opent/js/frames/client.js" language="JavaScript"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/mt/client.js" language="JavaScript"></script>
 
     <script src='<%=request.getContextPath()%>/mt/jquery.Scrollbar.min.js'></script>
     <div class="revealbga" style="display: none">
@@ -501,9 +500,9 @@
             <div class="about float_r">
                 <p class="clearfix" id="islogined">
                     <a class="know float_r" onclick="ga('send', 'event', 'quanzhanyetou', 'liaojiemaitian', 'liaojiemaitian');" href="http://about.maitian.cn/">了解麦田</a>
-                    <a onclick="ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'zhuce');" href='/userregist' class="reg float_r">注册</a><a href="javascript:;" style="cursor: default;">/</a>
-                    <a onclick="ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'denglu');" href='/userlogin' class="login float_r">登录</a>
-                </p>
+                    <span id="deng"></span>
+                    <a href="javascript:;" style="cursor:default;">/</a>
+                    <span id="tui"></span>  </p>
                 <h3 class="float_r">购房热线：400-706-1188</h3>
             </div>
         </div>
@@ -1238,7 +1237,22 @@
 
 
     </footer>
+    <script type="text/javascript">
+        $(function () {
+            var name='';
+            name='<%=request.getSession().getAttribute("name")%>';
+            if(name!='null'&&name!=''){
 
+                $("#deng").html("<a href='<%=request.getContextPath()%>/userjb.jsp'>"+name+"</a>")
+                $("#tui").html("<a href='<%=request.getContextPath()%>/userlogin.jsp'>退出</a>")
+            }else{
+                $("#deng").html("<a href='<%=request.getContextPath()%>/userlogin.jsp'>登录</a>")
+                $("#tui").html("<a href='<%=request.getContextPath()%>/zhuce.jsp'>注册</a>")
+            }
+
+        })
+
+    </script>
 
     <script type='text/javascript'>
         var _scriptList = [

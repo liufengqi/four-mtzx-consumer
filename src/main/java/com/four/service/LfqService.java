@@ -1,9 +1,9 @@
 package com.four.service;
 
+import com.four.entity.*;
+
 import java.util.List;
 import java.util.Map;
-
-import com.four.entity.*;
 
 public interface LfqService {
 
@@ -57,6 +57,22 @@ public interface LfqService {
 
     void updatexiugairz(Huirenzhuang rz);
 
+    List<t_sellzu> queryWTMZ();
+
+    void deleteMZ(String ids);
+
+    Map<String , Object> queryshoukuan();
+
+    List<Map<String,Object>> queryWTZF();
+
+    void deleteZF(String idse);
+
+    List<Map<Object,String>> queryHuijissss();
+
+    Huijin queryhyrenzhengshenhe(String id);
+
+    void updatejqglhui(Huijin hj);
+
     String fasongyzm(String phone);
 
     void zhuceuser(User user);
@@ -64,4 +80,6 @@ public interface LfqService {
     String querydengluuser(User user);
 
     User queryuserjbzil(String name);
+
+    List<Map<Object, String>> queryhousingdiv();
 }

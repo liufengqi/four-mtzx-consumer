@@ -212,10 +212,9 @@
                data:{"phone":phone},
                dataType:"text",
                success:function (data){
-                        alert(data);
-                        if (data == "yzm"){
+                       /* if (data == "yzm"){
                             alert("发送成功");
-                        }
+                        }*/
                }
            })
        }
