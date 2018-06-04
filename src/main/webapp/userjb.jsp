@@ -41,6 +41,7 @@
     <link href="<%=request.getContextPath()%>/mt/imcommon.css" rel="stylesheet" />
     <link href="<%=request.getContextPath()%>/mt/mtim.css" rel="stylesheet" />
     <!-- webIM css -->
+    <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 
     <script type='text/javascript' src='<%=request.getContextPath()%>/mt/init.js'></script>
     <!--<script type='text/javascript' src='/scripts/pages/base/pagebase.js'></script>-->
@@ -197,16 +198,16 @@
             </li>
             <li>
                 <a onclick="ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'xiaoqu');" href='
-                    /xqall'
+                    <%=request.getContextPath()%>/zxh/zixun.jsp'
 
-                   id="matianxq">小区
+                   id="matianxq">咨询
                 </a>
             </li>
             <li>
                 <a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'jingjiren');" href='
-                    /bkesf'
+                    <%=request.getContextPath()%>/zxh/fangchanguwen.jsp'
 
-                   id="matianjjr">房产顾问
+                   id="matianjjr">委托卖房
                 </a>
             </li>
             <!--<li>
@@ -215,8 +216,7 @@
             </li>-->
             <li>
                 <a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'woyaomaifang'); " href='
-                    /membersell'
-
+                    <%=request.getContextPath()%>/zxh/weituo.jsp'
                    id="matianwtcs"> 委托
                 </a>
             </li>
@@ -227,8 +227,9 @@
         <div class="about float_r">
             <p class="clearfix" id="islogined">
                 <a class="know float_r" onclick="ga('send', 'event', 'quanzhanyetou', 'liaojiemaitian', 'liaojiemaitian');" href="http://about.maitian.cn/">了解麦田</a>
-                <a onclick="ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'zhuce');" href='<%=request.getContextPath()%>/userlogin.jsp' class="reg float_r"> 退出</a><a href="javascript:;" style="cursor:default;">/</a>
-                <a onclick="ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'denglu');" href='javascript:void(0)' class="login float_r"><%=request.getParameter("name")%></a>
+                <span id="deng"></span>
+                <a href="javascript:;" style="cursor:default;">/</a>
+                <span id="tui"></span>
             </p>
             <h3 class="float_r">购房热线：400-706-1188</h3>
         </div>
@@ -1091,6 +1092,28 @@
 
 </script>
 
+
+
+<script type="text/javascript">
+
+    $(function () {
+        var name='';
+        name='<%=request.getSession().getAttribute("name")%>';
+
+        if(name!='null'&&name!=''){
+
+            $("#deng").html("<a href='<%=request.getContextPath()%>/userjb.jsp'>"+name+"</a>")
+            $("#tui").html("<a href='<%=request.getContextPath()%>/userlogin.jsp'>退出</a>")
+        }else{
+            $("#deng").html("<a href='<%=request.getContextPath()%>/userlogin.jsp'>登录</a>")
+            $("#tui").html("<a href='<%=request.getContextPath()%>/zhuce.jsp'>注册</a>")
+        }
+
+    })
+
+</script>
+
+
 <script type='text/javascript'>
 
 /*    var _scriptList = [
@@ -1104,7 +1127,6 @@
         GLOBAL.View.MemberIndex.Init();
     });*/
 
-var name =  '<%=request.getParameter("name")%>';
 
 $.ajax({
     url:"<%=request.getContextPath()%>/qt/queryuserjbzil",

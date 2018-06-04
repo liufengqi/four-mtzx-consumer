@@ -190,9 +190,9 @@
             </li>
             <li>
                 <a onclick="ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'xiaoqu');" href='
-                    /xqall'
+                    <%=request.getContextPath()%>/zxh/zixun.jsp'
 
-                   id="matianxq">小区
+                   id="matianxq">咨询
                 </a>
             </li>
             <li>
@@ -219,8 +219,9 @@
         <div class="about float_r">
             <p class="clearfix" id="islogined">
                 <a class="know float_r" onclick="ga('send', 'event', 'quanzhanyetou', 'liaojiemaitian', 'liaojiemaitian');" href="http://about.maitian.cn/">了解麦田</a>
-                <a onclick="ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'zhuce');" href='<%=request.getContextPath()%>/zhuce.jsp' class="reg float_r"> 注册</a><a href="javascript:;" style="cursor:default;">/</a>
-                <a onclick="ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'denglu');" href='<%=request.getContextPath()%>/userlogin.jsp' class="login float_r">登录</a>
+                <span id="deng"></span>
+                <a href="javascript:;" style="cursor:default;">/</a>
+                <span id="tui"></span>
             </p>
             <h3 class="float_r">购房热线：400-706-1188</h3>
         </div>
@@ -230,6 +231,24 @@
             display: none;
         }
     </style>
+    <script type="text/javascript">
+
+        $(function () {
+            var name='';
+            name='<%=request.getSession().getAttribute("name")%>';
+
+            if(name!='null'&&name!=''){
+
+                $("#deng").html("<a href='<%=request.getContextPath()%>/userjb.jsp'>"+name+"</a>")
+                $("#tui").html("<a href='<%=request.getContextPath()%>/userlogin.jsp'>退出</a>")
+            }else{
+                $("#deng").html("<a href='<%=request.getContextPath()%>/userlogin.jsp'>登录</a>")
+                $("#tui").html("<a href='<%=request.getContextPath()%>/zhuce.jsp'>注册</a>")
+            }
+
+        })
+
+    </script>
     <script>
         $(function () {
             $('.dezxails p span').click(function () {
@@ -298,7 +317,7 @@
 <script type='text/javascript'>
 
     $.ajax({
-        url:"<%=request.getContextPath()%>/gby/queryApartment",
+        url:"<%=request.getContextPath()%>/zxhtwo/queryApartment",
         type: "post",
         async: false,
         dataType: "json",

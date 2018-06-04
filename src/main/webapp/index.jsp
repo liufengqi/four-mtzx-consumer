@@ -28,7 +28,7 @@
     <meta name="keywords" content="北京二手房网,北京二手房买卖,北京个人房屋出售,北京二手房价格,北京二手房交易" />
     <meta name="description" content="麦田北京二手房网为您提供北京二手房出售，北京二手房房价查询,北京二手房交易等业务，包含北京个人二手房、地铁沿线二手房、豪宅别墅等房源，买卖北京二手房就上北京麦田在线，让您安心购房。" />
 
-
+    <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
     <script type='text/javascript' src="<%=request.getContextPath()%>/mt/init.js" tppabs="http://bj.maitian.cn/Scripts/pagekage/common/init.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/mt/base.css" tppabs="http://bj.maitian.cn/skin/css/base.css">
 
@@ -193,16 +193,32 @@
         </ul>
         <div class="about float_r">
 
-
             <p class="clearfix" id="islogined">
         <a class="know float_r" onclick="ga('send', 'event', 'quanzhanyetou', 'liaojiemaitian', 'liaojiemaitian');"             href="http://about.maitian.cn/">了解麦田</a>
-                <a  href="javascript:gerenziliaoym()" class="reg float_r">
-                    <%=request.getSession().getAttribute("name")%></a>
-                <a href="javascript:;" style="cursor:default;">/</a>
-                <a onclick="ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'denglu');" href='<%=request.getContextPath()%>/userlogin.jsp' class="login float_r">退出</a>
-             </p>
+                <span id="deng"></span>
+            <a href="javascript:;" style="cursor:default;">/</a>
+                <span id="tui"></span>
+            </p>
                      <h3 class="float_r">购房热线：400-706-1188</h3>
         </div>
+        <script type="text/javascript">
+$(function () {
+    var name='';
+    name='<%=request.getSession().getAttribute("name")%>';
+    if(name!='null'&&name!=''){
+
+        $("#deng").html("<a href='<%=request.getContextPath()%>/userjb.jsp'>"+name+"</a>")
+        $("#tui").html("<a href='<%=request.getContextPath()%>/userlogin.jsp'>退出</a>")
+    }else{
+        $("#deng").html("<a href='<%=request.getContextPath()%>/userlogin.jsp'>登录</a>")
+        $("#tui").html("<a href='<%=request.getContextPath()%>/zhuce.jsp'>注册</a>")
+    }
+
+})
+
+
+
+        </script>
     </div>
     <style>
         .city #mCSB_1_scrollbar_vertical {
@@ -1638,6 +1654,8 @@
 
 
 <script type='text/javascript'>
+
+
     var _scriptList = [
         //'/scripts/pages/base/pagebase.js',
         '<%=request.getContextPath()%>/mt/dataHandle.js',
@@ -1686,11 +1704,9 @@
     
     
 </script>
-<script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 
 <script type="text/javascript">
 
-    var aacc =  '<%=request.getSession().getAttribute("name")%>';
 
 
  /*   if(null == aacc){

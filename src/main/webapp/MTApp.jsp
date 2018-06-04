@@ -101,7 +101,7 @@
                 </li>
                 <li>
                     <a onclick="ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'xiaoqu');" href='
-                            /xqall'>小区
+                            <%=request.getContextPath()%>/zxh/zixun.jsp'>咨询
                     </a>
                 </li>
                 <li>

@@ -175,7 +175,7 @@
                             <li><a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'shouye'); " href='/Index.html'>首页</a></li>
                             <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'ershoufang'); " href='/esfall'>二手房</a></li>
                             <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'zufang'); " href='/zfall'>租房</a></li>
-                            <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'xiaoqu'); " href='/xqall'>小区</a></li>
+                            <li><a target="_blank" href='<%=request.getContextPath()%>/zxh/zixun.jsp'>咨询</a></li>
                             <li><a target="_blank"  href='<%=request.getContextPath()%>/zxh/fangchanguwen.jsp'>委托卖房</a></li>
                             <li><a target="_blank"  href='<%=request.getContextPath()%>/zxh/weituo.jsp'>委托</a></li>
                             <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'APP'); " href='<%=request.getContextPath()%>/MTApp.jsp'>麦田APP</a></li>
