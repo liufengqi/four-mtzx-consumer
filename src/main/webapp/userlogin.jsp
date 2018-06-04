@@ -70,14 +70,14 @@
             <a onclick="ga('send', 'event', 'dengluyetou', 'zhudaohang', 'jingjiren');" href='/bkesf'>房产顾问</a>
             <!--<a onclick="ga('send', 'event', 'dengluyetou', 'zhudaohang', 'VIP');" href='/viphouse.html'>麦田房源</a>-->
             <a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'woyaomaifang'); " href='/membersell'>委托</a>
-            <a onclick="ga('send', 'event', 'dengluyetou', 'zhudaohang', 'APP');" href='/MTApp.html'>麦田APP</a>
+            <a onclick="ga('send', 'event', 'dengluyetou', 'zhudaohang', 'APP');" href='/MTApp.jsp'>麦田APP</a>
 
         </p>
         <ul><a id="btnQQLogin" href="javascript:" onclick="ga('send', 'event', 'denglu', 'lianhedenglu', 'qqhaodenglu');" class="qq"><i class="mai-ico"></i>用QQ号码登录</a><a onclick="ga('send', 'event', 'denglu', 'lianhedenglu', 'xinlanweibodenglu');" id="btnSinaLogin" href="javascript:" class="weibo"><i class="mai-ico"></i>用新浪微博登录</a><!--<wb:login-button type="3,2" onlogin="login" onlogout="logout"></wb:login-button>--></ul>
     </div>
     <div class="login_frame details clearfix">
         <label class="go_reg">还没有麦田账号?<a onclick="ga('send', 'event', 'denglu', 'maitianzaixiandenglu', 'mashangzhuce');" href='<%=request.getContextPath()%>/zhuce.jsp'>马上注册</a></label>
-        <p><span tab="0" class="cur_tab">手机短信登录</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span tab="1">已有账号登录</span></p>
+        <p><span tab="0" class="cur_tab">手机短信登录</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%--<span tab="1">已有账号登录</span>--%></p>
         <form id="usereForm">
            <ul class="FancyForm " style="display: block" id="ulMobileVerify">
                <li>
@@ -143,13 +143,13 @@
         function dengluuser() {
 
             $.ajax({
-                url:"<%=request.getContextPath()%>/lfq/querydengluuser",
+                url:"<%=request.getContextPath()%>/qt/querydengluuser",
                 type:"post",
                 data:$("#usereForm").serialize(),
                 dataType:"text",
                 success:function (foul){
                     if(foul == "success"){
-                        alert("登陆成功");
+                        /*alert("登陆成功");*/
                         location.href="<%=request.getContextPath()%>/index.jsp";
 
                     }else if(foul == "mimacuowu"){

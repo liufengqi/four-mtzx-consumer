@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-@RequestMapping("lfq")
+@RequestMapping("qt")
 public class LfqController {
 
 

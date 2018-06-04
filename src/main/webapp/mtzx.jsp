@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 随风
-  Date: 2018-05-29
-  Time: 上午 11:16
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -176,16 +169,16 @@
                         <div class="nav-top" id="isIndexlogined">
                             <a class="login" onclick=" ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'zhuce'); " href='<%=request.getContextPath()%>/userlogin.jsp'>登录</a>
                             <span class="line">|</span>
-                            <a class="register" onclick=" ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'denglu'); " href='/userregist'>注册</a>
+                            <a class="register" onclick=" ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'denglu'); " href='<%=request.getContextPath()%>/zhuce.jsp'>注册</a>
                         </div>
                         <ul class="clearFix">
                             <li><a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'shouye'); " href='/Index.html'>首页</a></li>
                             <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'ershoufang'); " href='/esfall'>二手房</a></li>
                             <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'zufang'); " href='/zfall'>租房</a></li>
                             <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'xiaoqu'); " href='/xqall'>小区</a></li>
-                            <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'jingjiren'); " href='/bkesf'>房产顾问</a></li>
-                            <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'weituo'); " href='/membersell'>委托</a></li>
-                            <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'APP'); " href='<%=request.getContextPath()%>/mt/MTApp.html'>麦田APP</a></li>
+                            <li><a target="_blank"  href='<%=request.getContextPath()%>/zxh/fangchanguwen.jsp'>委托卖房</a></li>
+                            <li><a target="_blank"  href='<%=request.getContextPath()%>/zxh/weituo.jsp'>委托</a></li>
+                            <li><a target="_blank" onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'APP'); " href='<%=request.getContextPath()%>/MTApp.jsp'>麦田APP</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -215,7 +208,7 @@
                             <input onclick="ga('send', 'event', 'zhanneisousuo', 'sousuo', this.value); " id="ico-search" maxlength="100" class="search-word" type="text" placeholder="请输入小区名称、区域进行房源搜索" autocomplete="off" />
                             <input onclick="kaishizhaofang()" class="search-btn" id="btSearch" type="button" value="开始找房">
                         </div>
-                        <button type="button" class="search-by-map fr" onclick="javascrtpt: window.location.href = '../mt/imp/esfmap.html'; ga('send', 'event', 'zhanneisousuo', 'sousuo', 'dituzhaofang');"><i></i>地图找房</button>
+                        <button type="button" class="search-by-map fr" onclick="javascrtpt: window.location.href = '<%=request.getContextPath()%>/dituzf.jsp'; ga('send', 'event', 'zhanneisousuo', 'sousuo', 'dituzhaofang');"><i></i>地图找房</button>
                         <ol id="SearchTips" class="search_list" style="display: none;width:609px;background:#fff;opacity:0.95"></ol>
                     </div>
                     <dl class="hot-search clearFix">
@@ -793,7 +786,7 @@
                         <div id="send-file-warning"></div>
                     </div>
                     <div class="im-btn-container">
-                        <a href="/MTApp.html" target="_blank" title="下载麦田APP">立即下载麦田APP，随时随地聊~</a>
+                        <a href="/MTApp.jsp" target="_blank" title="下载麦田APP">立即下载麦田APP，随时随地聊~</a>
                         <input type="button" value="发送" class="send" onclick="sendText()" />
                     </div>
                 </div>
@@ -995,6 +988,9 @@
         location.href="<%=request.getContextPath()%>/index.jsp";
     }
 
+    function weituo(){
+        window.open("zxh/weituo.jsp","_blank")
+    }
     
 </script>
 

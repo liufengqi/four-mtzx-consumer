@@ -129,7 +129,7 @@
 <header class="maitian-header">
     <div class="nav-wrap clearfix">
         <ul class="fl">
-            <li class="logo"><a href="/index.html" onclick="ga('send', 'event', 'quanzhanyetou', 'logo', 'logo');"><img src="/Skin/img/logo.png" alt=""></a></li>
+            <li class="logo"><a href="/index.html" onclick="ga('send', 'event', 'quanzhanyetou', 'logo', 'logo');"><img src="/../mt/imp/logo.png" alt=""></a></li>
             <li class="city">
                 <div class="filter_select clearfix selectBox">
                     <a href="javascript:;" class="show">北京</a>
@@ -144,7 +144,7 @@
             </li>
             <li>
                 <a onclick="ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'shouye');" href='
-                    /Index.html'
+                    <%=request.getContextPath()%>/mtzx.jsp'
 
                    id="matianindex">首页
                 </a>
@@ -168,15 +168,13 @@
             <li>
                 <a onclick="ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'xiaoqu');" href='
                     /xqall'
-
                    id="matianxq">小区
                 </a>
             </li>
             <li>
                 <a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'jingjiren');" href='
-                    /bkesf'
-
-                   id="matianjjr">房产顾问
+                    <%=request.getContextPath()%>/zxh/fangchanguwen.jsp'
+                   id="matianjjr">委托出售
                 </a>
             </li>
             <!--<li>
@@ -185,19 +183,19 @@
             </li>-->
             <li>
                 <a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'woyaomaifang'); " href='
-                    /membersell'
-
+                    <%=request.getContextPath()%>/zxh/weituo.jsp'
                    id="matianwtcs"> 委托
                 </a>
             </li>
             <li>
-                <a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'APP');" href='/MTApp.html'>麦田APP</a>
+                <a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'APP');" href='/MTApp.jsp'>麦田APP</a>
             </li>
         </ul>
         <div class="about float_r">
 
+
             <p class="clearfix" id="islogined">
-        <a class="know float_r" onclick="ga('send', 'event', 'quanzhanyetou', 'liaojiemaitian', 'liaojiemaitian');" href="http://about.maitian.cn/">了解麦田</a>
+        <a class="know float_r" onclick="ga('send', 'event', 'quanzhanyetou', 'liaojiemaitian', 'liaojiemaitian');"             href="http://about.maitian.cn/">了解麦田</a>
                 <a  href="javascript:gerenziliaoym()" class="reg float_r">
                     <%=request.getSession().getAttribute("name")%></a>
                 <a href="javascript:;" style="cursor:default;">/</a>
@@ -244,7 +242,7 @@
         <p id="lastSearchTerm"></p>
     </div>
     <ul id="SearchTips" style="top: 37px; left: 0.5px; width: 622px; position: absolute; border: 1px solid #d9d9d9; background-color: white; display: none; z-index: 3;"></ul>
-    <script type='text/javascript' src='/../mt/imp/localStorage.js'></script>
+    <script type='text/javascript' src='<%=request.getContextPath()%>/mt/imp/localStorage.js'></script>
 
 
     <div class="clear"></div>
@@ -1368,7 +1366,7 @@
 <!--webIm-->
 
 <!--webNIM-->
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=d6zGANUDmor3AVuE7Iy34UCY"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9Qqgu6wUHSFzaBdUfUTHnaIStqcynhwW"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/mt/NIM_Web_NIM_v4.6.0.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/mt/localStorage.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/mt/WebNimCommon.js"></script>
@@ -1442,7 +1440,7 @@
                         <div id="send-file-warning"></div>
                     </div>
                     <div class="im-btn-container">
-                        <a href="/MTApp.html" target="_blank" title="下载麦田APP">立即下载麦田APP，随时随地聊~</a>
+                        <a href="/MTApp.jsp" target="_blank" title="下载麦田APP">立即下载麦田APP，随时随地聊~</a>
                         <input type="button" value="发送" class="send" onclick="sendText()" />
                     </div>
                 </div>
