@@ -7,14 +7,8 @@
     <title>新闻资讯 - 友价房产网T601</title>
     <link href="<%=request.getContextPath()%>/mt/basic.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/mt/index.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
-    <script language="javascript" src="<%=request.getContextPath()%>/mt/basic.js"></script>
-    <script language="javascript" src="<%=request.getContextPath()%>/mt/indexqh.js"></script>
 </head>
 <body>
-<script language="javascript">
-    userCheckses();
-</script>
 <!--顶部开始-->
 <div class="topbfb">
     <div class="yjcode">
@@ -329,22 +323,28 @@
         </script><a href="http://tongji.baidu.com/web/welcome/ico?s=2cbb034ac8adb10e0e457326c9d8e882" target=_blank>百度统计</a>  </div>
     </div>
 </div>
-
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+<script language="javascript" src="<%=request.getContextPath()%>/mt/basic.js"></script>
+<script language="javascript" src="<%=request.getContextPath()%>/mt/indexqh.js"></script>
+<script language="javascript">
+    userCheckses();
+</script>
 <script type="text/javascript">
-    $.ajax({
-        url:"<%=request.getContextPath()%>/zxhtwo/selectZiXun",
-        type:"post",
-        dataType:"json",
-        success:function (data){
-            console.info(data)
-            var option = "";
-            $(data).each(function (){
-                option+="<li class='l1'><span class='s1'>"+this.id+"</span></li>" +
-                    "                    <li class='l2'><a href='txtlist_i112v.html' title='"+this.name+"'>"+this.name+"</a></li>";
-            })
-            $("#xun").append(option);
-        }
-    })
+        $.ajax({
+            url:"<%=request.getContextPath()%>/zxhtwo/selectZiXun",
+            type:"post",
+            async:false,
+            dataType:"json",
+            success:function (data){
+                console.info(data)
+                var option = "";
+                $(data).each(function (){
+                    option+="<li class='l1'><span class='s1'>"+this.id+"</span></li>" +
+                        "                    <li class='l2'><a href='txtlist_i112v.html' title='"+this.name+"'>"+this.name+"</a></li>";
+                })
+                $("#xun").append(option);
+            }
+        })
 </script>
 </body>
 </html>
