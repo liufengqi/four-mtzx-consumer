@@ -144,7 +144,7 @@
             </li>
             <li>
                 <a onclick="ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'shouye');" href='
-                    /Index.html'
+                    <%=request.getContextPath()%>/mtzx.jsp'
 
                    id="matianindex">首页
                 </a>
@@ -167,16 +167,16 @@
             </li>
             <li>
                 <a onclick="ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'xiaoqu');" href='
-                    /xqall'
+                    <%=request.getContextPath()%>/zxh/zixun.jsp'
 
-                   id="matianxq">小区
+                   id="matianxq">咨询
                 </a>
             </li>
             <li>
                 <a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'jingjiren');" href='
-                    /bkesf'
+                    <%=request.getContextPath()%>/zxh/fangchanguwen.jsp'
 
-                   id="matianjjr">房产顾问
+                   id="matianjjr">委托卖房
                 </a>
             </li>
             <!--<li>
@@ -185,7 +185,7 @@
             </li>-->
             <li>
                 <a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'woyaomaifang'); " href='
-                    /membersell'
+                    <%=request.getContextPath()%>/zxh/weituo.jsp'
 
                    id="matianwtcs"> 委托
                 </a>
@@ -899,12 +899,12 @@
             async:false,
             success:function(divs){
                 var asdiv = "";
+                console.info(divs)
                 $(divs).each(function(){
-
-                    var  id  =Integer.parseInt(this.id);
-
-                   var arr = this.familystructure.split(",")
-                    asdiv+="<li class='clearfix'><a target='_blank' href=''><img src='"+this.photo+"' width='508' height='156'/></a><div class='list_title'><div class='the_price'><ol><strong>"+this.fangprice+"万元</strong></ol></div><h1><a target='_blank' href='<%=request.getContextPath()%>/xiangxifz.jsp?id=<%=id %>'>"+this.name+"</a></h1><p>["+this.arname+"]&nbsp;"+this.arename+"&nbsp;"+this.residential+"&nbsp;|&nbsp;<span>"+this.acreage+"</span>㎡|&nbsp;&nbsp;<span>"+arr[0]+"</span>室&nbsp;<span>"+arr[1]+"</span>厅&nbsp;<span>"+arr[2]+"</span>厨&nbsp;<span>"+arr[3]+"</span>卫&nbsp;&nbsp;|&nbsp;"+this.orname+"</p></div></li>";
+                    /*var  id  = Integer.parseInt(this.id)
+                    alert(id);*/
+                    var arr = this.familystructure.split(",")
+                    asdiv+="<li class='clearfix'><a target='_blank' href=''><img src='"+this.photo+"' width='508' height='156'/></a><div class='list_title'><div class='the_price'><ol><strong>"+this.fangprice+"万元</strong></ol></div><h1><a target='_blank' href='<%=request.getContextPath()%>/xiangxifz.jsp?id="+this.id+"'>"+this.name+"</a></h1><p>["+this.arname+"]&nbsp;"+this.arename+"&nbsp;"+this.residential+"&nbsp;|&nbsp;<span>"+this.acreage+"</span>㎡|&nbsp;&nbsp;<span>"+arr[0]+"</span>室&nbsp  ;<span>"+arr[1]+"</span>厅&nbsp;<span>"+arr[2]+"</span>厨&nbsp;<span>"+arr[3]+"</span>卫&nbsp;&nbsp;|&nbsp;"+this.orname+"</p></div></li>";
                 })
               /*  <dl class="clearfix">
                     <dd class="morel clearfix">
@@ -915,9 +915,8 @@
                     </dl>
                     </div>
                     </li>*/
-
+                alert(asdiv);
                 $("#divche").html(asdiv);
-                alert($("#divche").html())
             }
         })
 

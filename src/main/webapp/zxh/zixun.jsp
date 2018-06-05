@@ -7,7 +7,7 @@
     <title>新闻资讯 - 友价房产网T601</title>
     <link href="<%=request.getContextPath()%>/mt/basic.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/mt/index.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="<%=request.getContextPath()%>/mt/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
     <script language="javascript" src="<%=request.getContextPath()%>/mt/basic.js"></script>
     <script language="javascript" src="<%=request.getContextPath()%>/mt/indexqh.js"></script>
 </head>
@@ -131,7 +131,8 @@
 
     </div>
 </div>
-<!--顶部结束--><script language="javascript">
+<!--顶部结束-->
+<script language="javascript">
     document.getElementById("topa6").className="a1";
 </script>
 
@@ -335,6 +336,7 @@
         type:"post",
         dataType:"json",
         success:function (data){
+            console.info(data)
             var option = "";
             $(data).each(function (){
                 option+="<li class='l1'><span class='s1'>"+this.id+"</span></li>" +

@@ -195,7 +195,7 @@
             <li>
                 <a onclick=" ga('send', 'event', 'quanzhanyetou', 'zhudaohang', 'jingjiren');" href='
                     <%=request.getContextPath()%>/zxh/fangchanguwen.jsp'
-                   id="matianjjr">房产顾问
+                   id="matianjjr">委托卖房
                 </a>
             </li>
             <!--<li>

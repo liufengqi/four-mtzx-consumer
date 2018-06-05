@@ -131,8 +131,9 @@
             <div class="about float_r">
                 <p class="clearfix" id="islogined">
                     <a class="know float_r" onclick="ga('send', 'event', 'quanzhanyetou', 'liaojiemaitian', 'liaojiemaitian');" href="http://about.maitian.cn/">了解麦田</a>
-                    <a onclick="ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'zhuce');" href='/userregist' class="reg float_r">注册</a>
-                    <a onclick="ga('send', 'event', 'quanzhanyetou', 'denlguzhuce', 'denglu');" href='/userlogin' class="login float_r">登录/</a>
+                    <span id="deng"></span>
+                    <a href="javascript:;" style="cursor:default;">/</a>
+                    <span id="tui"></span>
                 </p>
                 <h3 class="float_r">购房热线：400-706-1188</h3>
             </div>
@@ -193,6 +194,25 @@
     </footer>
 
 </div>
+
+<script type="text/javascript">
+
+    $(function () {
+        var name='';
+        name='<%=request.getSession().getAttribute("name")%>';
+
+        if(name!='null'&&name!=''){
+
+            $("#deng").html("<a href='<%=request.getContextPath()%>/userjb.jsp'>"+name+"</a>")
+            $("#tui").html("<a href='<%=request.getContextPath()%>/userlogin.jsp'>退出</a>")
+        }else{
+            $("#deng").html("<a href='<%=request.getContextPath()%>/userlogin.jsp'>登录</a>")
+            $("#tui").html("<a href='<%=request.getContextPath()%>/zhuce.jsp'>注册</a>")
+        }
+
+    })
+
+</script>
 </body>
 </html>
 <!--<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101321688" data-redirecturi="http://www.maitian.cn/Service/AuthLoginQQ.ashx" charset="utf-8"></script>-->

@@ -33,7 +33,8 @@ public class ZxhController {
         HttpServletRequest request= ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String name =(String) request.getSession().getAttribute("name");
         String falg = "weideng";
-        if(name!=null && "".equals(name)){
+        if(name!=null && !"".equals(name)){
+            System.err.println(name+"aaa");
             falg = zxhtwoservice.insertZhaoFang(zhao);
         }
         System.err.println(falg);
@@ -51,7 +52,7 @@ public class ZxhController {
         HttpServletRequest request= ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String name =(String) request.getSession().getAttribute("name");
         String falg = "weideng";
-        if(name!=null && "".equals(name)){
+        if(name!=null && !"".equals(name)){
             falg = zxhtwoservice.insertWeiSellZu(sell);
         }
         return falg;
